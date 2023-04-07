@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8619569842160922989}
   - component: {fileID: 282161656357246312}
   - component: {fileID: 1808553487}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 10
-  jumpSpeed: 5
+  jumpSpeed: 12
   climbSpeed: 5
 --- !u!50 &8332278452344259227
 Rigidbody2D:
@@ -140,7 +140,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -155,7 +155,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 2036889239222611647}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 007dba4df5bd88d4ab077937d852fa3f, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -201,7 +201,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 2036889239222611647}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 007dba4df5bd88d4ab077937d852fa3f, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0

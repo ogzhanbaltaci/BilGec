@@ -10,15 +10,24 @@ public class PlayerMovement : MonoBehaviour
     Vector2 moveInput;
     Rigidbody2D myRigidbody;
     Animator myAnimator;
+    CapsuleCollider2D myBodyCollider;
     BoxCollider2D myFeetCollider;
     bool isGrounded;
+    //bool playerHasHorizantalSpeed;
     float gravityScaleAtStart;
+    Question question;
+    void Awake() 
+    {
+        question = FindObjectOfType<Question>();
+    }
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
+        myBodyCollider = GetComponent<CapsuleCollider2D>();
         myFeetCollider = GetComponent<BoxCollider2D>();
         gravityScaleAtStart = myRigidbody.gravityScale;
+        question.gameObject.SetActive(false);
     }
 
     void Update()
@@ -30,10 +39,22 @@ public class PlayerMovement : MonoBehaviour
 
     void OnMove(InputValue value)
     {
-        moveInput = value.Get<Vector2>();
+        if(question.isActive == true)
+        { 
+            
+            return;
+        }
+        moveInput = value.Get<Vector2>();  
     }
     void OnJump(InputValue value)
     {
+        if(question.isActive == true)
+        { 
+            return;
+        }
+        if(!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))){
+            return;
+        }
         if(value.isPressed && isGrounded)
         {
             myRigidbody.velocity += new Vector2 (0f, jumpSpeed);
@@ -80,8 +101,21 @@ public class PlayerMovement : MonoBehaviour
         {
             isGrounded = true;
             myAnimator.SetBool("isJumping", false);
-            Debug.Log(isGrounded);
-
+        }
+        
+    }
+    private void OnTriggerEnter2D(Collider2D other) 
+    {
+        if(other.gameObject.CompareTag("Ladder"))
+        {
+            myAnimator.SetBool("isClimbing", true);
+            myAnimator.SetBool("isJumping", false);
+        }
+        if(other.gameObject.CompareTag("Enemy"))
+        {
+            question.isActive = true;
+            question.gameObject.SetActive(true);
+            FindObjectOfType<EnemyMovement>().EnemyIdle();
         }
     }
     void OnCollisionExit2D(Collision2D Collider)
@@ -89,7 +123,6 @@ public class PlayerMovement : MonoBehaviour
         if (Collider.gameObject.CompareTag("Ground") && !myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
             isGrounded = false;
-            Debug.Log(isGrounded);
         }
     }
 }
