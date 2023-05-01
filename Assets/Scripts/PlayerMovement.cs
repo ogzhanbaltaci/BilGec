@@ -15,10 +15,10 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded;
     //bool playerHasHorizantalSpeed;
     float gravityScaleAtStart;
-    Question question;
+    Quiz quiz;
     void Awake() 
     {
-        question = FindObjectOfType<Question>();
+        quiz = FindObjectOfType<Quiz>();
     }
     void Start()
     {
@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
         myBodyCollider = GetComponent<CapsuleCollider2D>();
         myFeetCollider = GetComponent<BoxCollider2D>();
         gravityScaleAtStart = myRigidbody.gravityScale;
-        question.gameObject.SetActive(false);
+        quiz.gameObject.SetActive(false);
     }
 
     void Update()
@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnMove(InputValue value)
     {
-        if(question.isActive == true)
+        if(quiz.isActive == true)
         { 
             
             return;
@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void OnJump(InputValue value)
     {
-        if(question.isActive == true)
+        if(quiz.isActive == true)
         { 
             return;
         }
@@ -113,8 +113,8 @@ public class PlayerMovement : MonoBehaviour
         }
         if(other.gameObject.CompareTag("Enemy"))
         {
-            question.isActive = true;
-            question.gameObject.SetActive(true);
+            quiz.isActive = true;
+            quiz.gameObject.SetActive(true);
             FindObjectOfType<EnemyMovement>().EnemyIdle();
         }
     }
