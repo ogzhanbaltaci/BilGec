@@ -7,23 +7,22 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] float moveSpeed = 1f;
     Rigidbody2D myRigidbody;
     BoxCollider2D enemyFootCollider;
-    Animator enemyAnimator;
+    public Quiz quiz;
+    
+    void Awake()
+    {
+        quiz = FindObjectOfType<Quiz>();
+    }
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
         enemyFootCollider = GetComponent<BoxCollider2D>();
-        enemyAnimator = GetComponent<Animator>();
     }
 
     
     void Update()
     {
         myRigidbody.velocity = new Vector2 (moveSpeed, 0f) ;
-        /*if(FindObjectOfType<Question>().isActive == true)
-        {
-            moveSpeed = 0f;
-            enemyAnimator.SetBool("isIdleing", true);
-        }*/
     }
     void OnTriggerExit2D(Collider2D other) 
     {
@@ -41,6 +40,6 @@ public class EnemyMovement : MonoBehaviour
     public void EnemyIdle()
     {
         moveSpeed = 0f;
-        enemyAnimator.SetBool("isIdling", true);
+        quiz.playerMovement.enemyAnimator.SetBool("isIdling", true);
     }
 }

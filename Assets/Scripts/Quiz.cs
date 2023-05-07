@@ -26,13 +26,22 @@ public class Quiz : MonoBehaviour
     [SerializeField] Sprite wrongAnswerSprite;
     Image buttonColor;
     Image buttonImage;
+    Health health;
     public bool isActive;
+    public PlayerMovement playerMovement;
+    Quiz quiz;
+    public bool inQuiz;
+    void Awake()
+    {
+        playerMovement = FindObjectOfType<PlayerMovement>();
+    }
     void Start()
     {
         timer = FindObjectOfType<Timer>();
+        quiz = FindObjectOfType<Quiz>();
+        health = FindObjectOfType<Health>();
+        
     }
-
-    
     void Update()
     {
         timerImage.fillAmount = timer.fillFraction;
@@ -60,8 +69,13 @@ public class Quiz : MonoBehaviour
     {
        if(index == currentQuestion.GetCorrectAnswerIndex()){
             questionText.text = "Correct";
+            health = playerMovement.enemyHealth;
+            health.DealDamage();
+            Debug.Log(playerMovement.enemyHealth.health);
             buttonImage = answerButtons[index].GetComponent<Image>(); 
             buttonImage.sprite = correctAnswerSprite;  
+            
+                
             //scoreKeeper.IncrementCorrectAnswers();            
             //audioSource.clip = trueAnswer;
             //audioSource.Play();       
@@ -70,6 +84,8 @@ public class Quiz : MonoBehaviour
             correctAnswerIndex = currentQuestion.GetCorrectAnswerIndex();
             string correctAnswer = currentQuestion.GetAnswer(correctAnswerIndex);
             questionText.text = "Sorry, the correct answer was;\n" + correctAnswer;
+            health = playerMovement.playerHealth;
+            health.DealDamage();
             buttonImage = answerButtons[correctAnswerIndex].GetComponent<Image>();
             buttonImage.sprite = correctAnswerSprite;
             if(hasAnsweredEarly){
@@ -82,9 +98,15 @@ public class Quiz : MonoBehaviour
         }
     }
     void GetNextQuestion()
-    {
+    {   
+        if(health.health == 0)
+            {
+                quiz.gameObject.SetActive(false);
+                isActive = false;
+            }
         if(questions.Count > 0)
         {
+            
             SetButtonState(true);
             SetDefaultButtonSprites();
             GetRandomQuestion();
@@ -92,7 +114,6 @@ public class Quiz : MonoBehaviour
             //scoreKeeper.IncrementQuestionsSeen();
         }    
     }
-
     void GetRandomQuestion()
     {
         int index = Random.Range(0,questions.Count);
@@ -103,7 +124,6 @@ public class Quiz : MonoBehaviour
             questions.Remove(currentQuestion);
         }  
     }
-     
    void DisplayQuestion()
    {
         //audioSource.clip = newQuestion;
@@ -118,11 +138,11 @@ public class Quiz : MonoBehaviour
    }
    void SetButtonState(bool state)
    {
-    for (int i = 0; i<answerButtons.Length;i++)
-    {
-        Button button = answerButtons[i].GetComponent<Button>();
-        button.interactable = state;
-    }
+        for (int i = 0; i<answerButtons.Length;i++)
+        {
+            Button button = answerButtons[i].GetComponent<Button>();
+            button.interactable = state;
+        }
    }
    void SetDefaultButtonSprites()
    {

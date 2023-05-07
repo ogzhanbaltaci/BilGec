@@ -1,21 +1,26 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] float runSpeed = 10f;
+    [SerializeField] public float runSpeed = 10f;
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] float climbSpeed = 5f;
     Vector2 moveInput;
     Rigidbody2D myRigidbody;
-    Animator myAnimator;
+    public Animator myAnimator;
     CapsuleCollider2D myBodyCollider;
     BoxCollider2D myFeetCollider;
     bool isGrounded;
     //bool playerHasHorizantalSpeed;
     float gravityScaleAtStart;
-    Quiz quiz;
+    public Quiz quiz;
+    public Health enemyHealth;
+    public Health playerHealth;
+    public EnemyMovement enemyMovement;
+    public Animator enemyAnimator;
     void Awake() 
     {
         quiz = FindObjectOfType<Quiz>();
@@ -26,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
         myAnimator = GetComponent<Animator>();
         myBodyCollider = GetComponent<CapsuleCollider2D>();
         myFeetCollider = GetComponent<BoxCollider2D>();
+        playerHealth = GetComponent<Health>();
         gravityScaleAtStart = myRigidbody.gravityScale;
         quiz.gameObject.SetActive(false);
     }
@@ -41,8 +47,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(quiz.isActive == true)
         { 
-            
-            return;
+            runSpeed = 0f;
         }
         moveInput = value.Get<Vector2>();  
     }
@@ -104,7 +109,7 @@ public class PlayerMovement : MonoBehaviour
         }
         
     }
-    private void OnTriggerEnter2D(Collider2D other) 
+    void OnTriggerEnter2D(Collider2D other) 
     {
         if(other.gameObject.CompareTag("Ladder"))
         {
@@ -113,9 +118,15 @@ public class PlayerMovement : MonoBehaviour
         }
         if(other.gameObject.CompareTag("Enemy"))
         {
+            enemyHealth = other.gameObject.GetComponent<Health>();
+            enemyMovement = other.gameObject.GetComponent<EnemyMovement>();
+            enemyAnimator = other.gameObject.GetComponent<Animator>();
             quiz.isActive = true;
             quiz.gameObject.SetActive(true);
-            FindObjectOfType<EnemyMovement>().EnemyIdle();
+            quiz.inQuiz = true;
+            Debug.Log(quiz.inQuiz);
+            if(quiz.inQuiz == true)
+                enemyMovement.gameObject.GetComponent<EnemyMovement>().EnemyIdle();
         }
     }
     void OnCollisionExit2D(Collision2D Collider)
