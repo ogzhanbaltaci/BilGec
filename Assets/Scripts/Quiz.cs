@@ -26,11 +26,20 @@ public class Quiz : MonoBehaviour
     [SerializeField] Sprite wrongAnswerSprite;
     Image buttonColor;
     Image buttonImage;
+    
+    [Header("50:50Button")]
+    public int another5050Chance;
+    [SerializeField] Button fiftyfiftyButton; 
+    //[SerializeField] TextMeshProUGUI icon5050;
+    
+    
     Health health;
     public bool isActive;
     public PlayerMovement playerMovement;
     Quiz quiz;
     public bool inQuiz;
+    [SerializeField] Button twoXDamageButton;
+    public bool twoXDamageAvailable;
     void Awake()
     {
         playerMovement = FindObjectOfType<PlayerMovement>();
@@ -40,7 +49,6 @@ public class Quiz : MonoBehaviour
         timer = FindObjectOfType<Timer>();
         quiz = FindObjectOfType<Quiz>();
         health = FindObjectOfType<Health>();
-        
     }
     void Update()
     {
@@ -70,12 +78,10 @@ public class Quiz : MonoBehaviour
        if(index == currentQuestion.GetCorrectAnswerIndex()){
             questionText.text = "Correct";
             health = playerMovement.enemyHealth;
-            health.DealDamage();
+            health.DealDamage(twoXDamageAvailable);
             Debug.Log(playerMovement.enemyHealth.health);
             buttonImage = answerButtons[index].GetComponent<Image>(); 
             buttonImage.sprite = correctAnswerSprite;  
-            
-                
             //scoreKeeper.IncrementCorrectAnswers();            
             //audioSource.clip = trueAnswer;
             //audioSource.Play();       
@@ -85,7 +91,7 @@ public class Quiz : MonoBehaviour
             string correctAnswer = currentQuestion.GetAnswer(correctAnswerIndex);
             questionText.text = "Sorry, the correct answer was;\n" + correctAnswer;
             health = playerMovement.playerHealth;
-            health.DealDamage();
+            health.DealDamage(twoXDamageAvailable);
             buttonImage = answerButtons[correctAnswerIndex].GetComponent<Image>();
             buttonImage.sprite = correctAnswerSprite;
             if(hasAnsweredEarly){
@@ -99,14 +105,14 @@ public class Quiz : MonoBehaviour
     }
     void GetNextQuestion()
     {   
-        if(health.health == 0)
+        twoXDamageAvailable = false;
+        if(health.health <= 0)
             {
                 quiz.gameObject.SetActive(false);
                 isActive = false;
             }
         if(questions.Count > 0)
         {
-            
             SetButtonState(true);
             SetDefaultButtonSprites();
             GetRandomQuestion();
@@ -154,4 +160,38 @@ public class Quiz : MonoBehaviour
             buttonColor.color= Color.white;
         }
    }
+   public void On5050ButtonSelected()
+    {
+        Display5050Answer();
+    }
+   void Display5050Answer()
+    {
+        correctAnswerIndex = currentQuestion.GetCorrectAnswerIndex();
+        int index2 = 5;
+        for(int i=0; i<2; )
+        {
+            int[] numbers = {0,1,2,3};     
+            int index = Random.Range(0,numbers.Length);           
+            if(index != correctAnswerIndex && index != index2)
+            {
+                Button button = answerButtons[index].GetComponent<Button>();
+                buttonColor = answerButtons[index].GetComponent<Image>();
+                button.interactable = false;
+                buttonColor.color= Color.blue;
+                index2 = index;
+                i++;               
+            }
+        }
+        fiftyfiftyButton.GetComponent<Button>().interactable = false;
+        Another5050Chance();
+    }
+   void Another5050Chance()
+    {
+        another5050Chance=0;  
+    }
+    public void OnTwoXDamageButtonSelected()
+    {
+        twoXDamageAvailable = true;
+        twoXDamageButton.GetComponent<Button>().interactable = false;
+    }
 }

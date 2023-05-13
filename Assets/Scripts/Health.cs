@@ -12,19 +12,20 @@ public class Health : MonoBehaviour
     {
         quiz = FindObjectOfType<Quiz>(); 
     }
-    
-
-    
-    public void DealDamage()
+    public void DealDamage(bool twoXDamageAvailable)
     {
         DamageDealer damageDealer = GetComponent<DamageDealer>();
-        if(damageDealer != null)
+        if(damageDealer != null && twoXDamageAvailable == true)
         {
-            TakeDamage(damageDealer.GetDamage());
+            TakeDamage(damageDealer.GetDamage()*2);
             //PlayHitEffect();
             //audioPlayer.PlayDamageTakenClip();
             //ShakeCamera();
             //damageDealer.Hit();
+        }
+        else if(damageDealer != null)
+        {
+            TakeDamage(damageDealer.GetDamage());
         }
     }
     void TakeDamage(int damage)
@@ -34,18 +35,17 @@ public class Health : MonoBehaviour
         {
             StartCoroutine(Die());
         }
-        
     }
     public IEnumerator Die() 
     {
-        if(quiz.playerMovement.playerHealth.health == 0)
+        if(quiz.playerMovement.playerHealth.health <= 0)
         {
             quiz.playerMovement.myAnimator.SetBool("isDead", true);
             yield return new WaitForSecondsRealtime(0.8f);
             Destroy(gameObject);
             quiz.inQuiz = false;
         }
-        else if(quiz.playerMovement.enemyHealth.health == 0)
+        else if(quiz.playerMovement.enemyHealth.health <= 0)
         {
             Debug.Log("girdi");
             quiz.playerMovement.enemyAnimator.SetBool("isDead", true);
@@ -54,7 +54,6 @@ public class Health : MonoBehaviour
             quiz.playerMovement.runSpeed = 10f;
             quiz.inQuiz = false;
         }
-        
     }
     
 }

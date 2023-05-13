@@ -60,6 +60,9 @@ public class PlayerMovement : MonoBehaviour
         if(!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))){
             return;
         }
+        if(myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Climbing"))){
+            return;
+        }
         if(value.isPressed && isGrounded)
         {
             myRigidbody.velocity += new Vector2 (0f, jumpSpeed);

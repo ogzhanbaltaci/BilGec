@@ -18,8 +18,6 @@ public class EnemyMovement : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody2D>();
         enemyFootCollider = GetComponent<BoxCollider2D>();
     }
-
-    
     void Update()
     {
         myRigidbody.velocity = new Vector2 (moveSpeed, 0f) ;
@@ -31,7 +29,6 @@ public class EnemyMovement : MonoBehaviour
             moveSpeed = -moveSpeed;
             FlipEnemyFacing();
         }
-        
     }
     void FlipEnemyFacing()
     {
