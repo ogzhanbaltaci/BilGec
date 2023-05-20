@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] public float runSpeed = 10f;
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] float climbSpeed = 5f;
+    [SerializeField] Vector2 deathKick = new Vector2(10f, 10f);
     Vector2 moveInput;
     Rigidbody2D myRigidbody;
     public Animator myAnimator;
@@ -21,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     public Health playerHealth;
     public EnemyMovement enemyMovement;
     public Animator enemyAnimator;
+    public Slider enemyHealthBar;
     void Awake() 
     {
         quiz = FindObjectOfType<Quiz>();
@@ -41,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
         Run();
         FlipSprite();
         ClimbLadder();
+        Die();
     }
 
     void OnMove(InputValue value)
@@ -124,6 +128,8 @@ public class PlayerMovement : MonoBehaviour
             enemyHealth = other.gameObject.GetComponent<Health>();
             enemyMovement = other.gameObject.GetComponent<EnemyMovement>();
             enemyAnimator = other.gameObject.GetComponent<Animator>();
+            enemyHealthBar = other.gameObject.GetComponentInChildren<Slider>();
+            enemyHealthBar.value = enemyHealth.health;
             quiz.isActive = true;
             quiz.gameObject.SetActive(true);
             quiz.inQuiz = true;
@@ -139,4 +145,13 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = false;
         }
     }
+    void Die()
+    {
+       if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Hazards"))) 
+       {
+            myAnimator.SetTrigger("isHurt");
+            myRigidbody.velocity = deathKick;
+            //FindObjectOfType<GameSession>().ProcessPlayerDeath();
+       }
+    } 
 }

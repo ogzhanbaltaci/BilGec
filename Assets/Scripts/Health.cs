@@ -36,6 +36,10 @@ public class Health : MonoBehaviour
             StartCoroutine(Die());
         }
     }
+    public void HealthPickup(int healthForHealthPickup)
+    {
+        health += healthForHealthPickup;
+    }
     public IEnumerator Die() 
     {
         if(quiz.playerMovement.playerHealth.health <= 0)
