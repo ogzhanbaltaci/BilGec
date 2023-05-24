@@ -1,18 +1,49 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameSession : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] Health playerHealth;
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         
+    }
+    public void ProcessPlayerDeath()
+    {
+        if(playerHealth.health > 10)
+        {
+            TakeLife();
+        }
+        else
+        {
+            //ongoingCanvas.gameObject.SetActive(false);
+            //tryAgainCanvas.gameObject.SetActive(true);
+        }
+    }
+    void TakeLife()
+    {
+        playerHealth.health -= 10;
+        
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        Debug.Log(playerHealth.health);
+        SceneManager.LoadScene(currentSceneIndex);
+        
+        //livesText.text = playerLives.ToString();
+    }
+
+    public void ResetGameSession()
+    {
+        //FindObjectOfType<ScenePersist>().ResetScenePersist();
+        SceneManager.LoadScene(0);
+        Destroy(gameObject);
     }
 }

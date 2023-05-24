@@ -7,6 +7,9 @@ TagManager:
   - Ground
   - Ladder
   - Enemy
+  - FallDetector
+  - Checkpoint
+  - Hazards
   layers:
   - Default
   - TransparentFX

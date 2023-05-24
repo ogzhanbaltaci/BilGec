@@ -42,21 +42,23 @@ public class Health : MonoBehaviour
     }
     public IEnumerator Die() 
     {
-        if(quiz.playerMovement.playerHealth.health <= 0)
+        if(quiz.playerController.playerHealth.health <= 0)
         {
-            quiz.playerMovement.myAnimator.SetBool("isDead", true);
+            quiz.playerController.myAnimator.SetBool("isDead", true);
             yield return new WaitForSecondsRealtime(0.8f);
             Destroy(gameObject);
             quiz.inQuiz = false;
         }
-        else if(quiz.playerMovement.enemyHealth.health <= 0)
+        else if(quiz.enemySeen.enemyHealth.health <= 0)
         {
             Debug.Log("girdi");
-            quiz.playerMovement.enemyAnimator.SetBool("isDead", true);
+            //quiz.playerMovement.enemyAnimator.SetBool("isDead", true);
+            quiz.enemySeen.enemyAnimator.SetBool("isDead", true);
             yield return new WaitForSecondsRealtime(0.8f);
             Destroy(gameObject);
-            quiz.playerMovement.runSpeed = 10f;
+            quiz.playerController.runSpeed = 10f;
             quiz.inQuiz = false;
+            
         }
     }
     

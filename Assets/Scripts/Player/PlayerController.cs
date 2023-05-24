@@ -4,12 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-public class PlayerMovement : MonoBehaviour
+using UnityEngine.Tilemaps;
+public class PlayerController : MonoBehaviour
 {
     [SerializeField] public float runSpeed = 10f;
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] float climbSpeed = 5f;
     [SerializeField] Vector2 deathKick = new Vector2(10f, 10f);
+    [SerializeField] CompositeCollider2D platformsCompCollider;
+    [SerializeField] TilemapCollider2D hazardsTilemapCollider;
     Vector2 moveInput;
     Rigidbody2D myRigidbody;
     public Animator myAnimator;
@@ -19,11 +22,9 @@ public class PlayerMovement : MonoBehaviour
     //bool playerHasHorizantalSpeed;
     float gravityScaleAtStart;
     public Quiz quiz;
-    public Health enemyHealth;
-    public Health playerHealth;
-    public EnemyMovement enemyMovement;
-    public Animator enemyAnimator;
-    public Slider enemyHealthBar;
+    [SerializeField] public Health playerHealth;
+    private Vector3 respawnPoint;
+    public GameObject fallDetector;
     void Awake() 
     {
         quiz = FindObjectOfType<Quiz>();
@@ -34,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         myAnimator = GetComponent<Animator>();
         myBodyCollider = GetComponent<CapsuleCollider2D>();
         myFeetCollider = GetComponent<BoxCollider2D>();
-        playerHealth = GetComponent<Health>();
+        respawnPoint = transform.position;
         gravityScaleAtStart = myRigidbody.gravityScale;
         quiz.gameObject.SetActive(false);
     }
@@ -44,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
         Run();
         FlipSprite();
         ClimbLadder();
-        Die();
+        //Die();
     }
 
     void OnMove(InputValue value)
@@ -65,6 +66,9 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
         if(myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Climbing"))){
+            return;
+        }
+        if(myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Hazards"))){
             return;
         }
         if(value.isPressed && isGrounded)
@@ -123,19 +127,27 @@ public class PlayerMovement : MonoBehaviour
             myAnimator.SetBool("isClimbing", true);
             myAnimator.SetBool("isJumping", false);
         }
-        if(other.gameObject.CompareTag("Enemy"))
+        else if(other.tag == "FallDetector")
         {
-            enemyHealth = other.gameObject.GetComponent<Health>();
-            enemyMovement = other.gameObject.GetComponent<EnemyMovement>();
-            enemyAnimator = other.gameObject.GetComponent<Animator>();
-            enemyHealthBar = other.gameObject.GetComponentInChildren<Slider>();
-            enemyHealthBar.value = enemyHealth.health;
-            quiz.isActive = true;
-            quiz.gameObject.SetActive(true);
-            quiz.inQuiz = true;
-            Debug.Log(quiz.inQuiz);
-            if(quiz.inQuiz == true)
-                enemyMovement.gameObject.GetComponent<EnemyMovement>().EnemyIdle();
+            platformsCompCollider.isTrigger = false;
+            hazardsTilemapCollider.enabled = true;
+            myAnimator.SetBool("isHurt", false);
+            runSpeed = 10f;
+            transform.position = respawnPoint;
+        }
+        else if(other.tag == "Checkpoint")
+        {
+            respawnPoint = transform.position;
+        }
+        else if(other.tag == "Hazards")
+        {
+            myAnimator.SetBool("isHurt", true);
+            playerHealth.health -= 10;
+            runSpeed = 0f;
+            myAnimator.SetBool("isJumping", false);
+            myRigidbody.velocity = deathKick;
+            hazardsTilemapCollider.enabled = false;
+            platformsCompCollider.isTrigger = true;
         }
     }
     void OnCollisionExit2D(Collision2D Collider)
@@ -145,13 +157,13 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = false;
         }
     }
-    void Die()
+    /*void Die()
     {
        if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Hazards"))) 
        {
             myAnimator.SetTrigger("isHurt");
             myRigidbody.velocity = deathKick;
-            //FindObjectOfType<GameSession>().ProcessPlayerDeath();
+            FindObjectOfType<GameSession>().ProcessPlayerDeath();
        }
-    } 
+    } */
 }

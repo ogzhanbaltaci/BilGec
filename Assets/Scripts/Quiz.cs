@@ -35,14 +35,16 @@ public class Quiz : MonoBehaviour
     
     Health health;
     public bool isActive;
-    public PlayerMovement playerMovement;
+    public PlayerController playerController;
     Quiz quiz;
     public bool inQuiz;
     [SerializeField] Button twoXDamageButton;
     public bool twoXDamageAvailable;
+    public EnemySeen enemySeen;
     void Awake()
     {
-        playerMovement = FindObjectOfType<PlayerMovement>();
+        playerController = FindObjectOfType<PlayerController>();
+        enemySeen = FindObjectOfType<EnemySeen>();
     }
     void Start()
     {
@@ -77,9 +79,9 @@ public class Quiz : MonoBehaviour
     {
        if(index == currentQuestion.GetCorrectAnswerIndex()){
             questionText.text = "Correct";
-            health = playerMovement.enemyHealth;
+            health = enemySeen.enemyHealth;
             health.DealDamage(twoXDamageAvailable);
-            Debug.Log(playerMovement.enemyHealth.health);
+            Debug.Log(enemySeen.enemyHealth.health);
             buttonImage = answerButtons[index].GetComponent<Image>(); 
             buttonImage.sprite = correctAnswerSprite;  
             //scoreKeeper.IncrementCorrectAnswers();            
@@ -90,7 +92,7 @@ public class Quiz : MonoBehaviour
             correctAnswerIndex = currentQuestion.GetCorrectAnswerIndex();
             string correctAnswer = currentQuestion.GetAnswer(correctAnswerIndex);
             questionText.text = "Sorry, the correct answer was;\n" + correctAnswer;
-            health = playerMovement.playerHealth;
+            health = playerController.playerHealth;
             health.DealDamage(twoXDamageAvailable);
             buttonImage = answerButtons[correctAnswerIndex].GetComponent<Image>();
             buttonImage.sprite = correctAnswerSprite;
