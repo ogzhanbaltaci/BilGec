@@ -29,7 +29,7 @@ public class Quiz : MonoBehaviour
     
     [Header("50:50Button")]
     public int another5050Chance;
-    [SerializeField] Button fiftyfiftyButton; 
+    public Button fiftyfiftyButton; 
     //[SerializeField] TextMeshProUGUI icon5050;
     
     
@@ -38,7 +38,7 @@ public class Quiz : MonoBehaviour
     public PlayerController playerController;
     Quiz quiz;
     public bool inQuiz;
-    [SerializeField] Button twoXDamageButton;
+    public Button twoXDamageButton;
     public bool twoXDamageAvailable;
     public EnemySeen enemySeen;
     void Awake()

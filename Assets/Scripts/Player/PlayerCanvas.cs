@@ -9,11 +9,6 @@ public class PlayerCanvas : MonoBehaviour
     [SerializeField] Slider healthBar;
     [SerializeField] TextMeshProUGUI healthText;
     [SerializeField] Health playerHealth;
-   
-    void Start()
-    {
-        
-    }
     void Update()
     {
         healthBar.value = playerHealth.health;

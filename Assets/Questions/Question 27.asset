@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7de7fd8952ca6b4e91542357fd933fb, type: 3}
+  m_Name: Question 27
+  m_EditorClassIdentifier: 
+  question: "Molotov-Ribbentrop Sald\u0131rmazl\u0131k Pakt\u0131 hangi devletler
+    aras\u0131nda imzalanm\u0131\u015Ft\u0131r?"
+  answers:
+  - "\u0130ran-Sovyetler Birli\u011Fi"
+  - "B\xFCy\xFCk Britanya-Fransa"
+  - "Nazi Almanyas\u0131-Sovyetler Birli\u011Fi"
+  - "\u0130talya-\u0130svi\xE7re"
+  correctAnswerIndex: 2
+  category: 
