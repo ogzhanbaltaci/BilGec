@@ -7,15 +7,11 @@ using UnityEngine.SceneManagement;
 public class GameSession : MonoBehaviour
 {
     [SerializeField] Health playerHealth;
+    static GameSession instance;
+    public List<QuestionSO> questions = new List<QuestionSO>();
     void Start()
     {
-        
-    }
-
-    
-    void Update()
-    {
-        
+        ManageSingelton();
     }
     public void ProcessPlayerDeath()
     {
@@ -45,5 +41,18 @@ public class GameSession : MonoBehaviour
         //FindObjectOfType<ScenePersist>().ResetScenePersist();
         SceneManager.LoadScene(0);
         Destroy(gameObject);
+    }
+    void ManageSingelton()
+    {
+        if(instance != null)
+        {
+            gameObject.SetActive(false);
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
 }

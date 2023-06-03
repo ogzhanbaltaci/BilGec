@@ -8,7 +8,7 @@ public class Quiz : MonoBehaviour
 {
     [Header("Questions")]
     [SerializeField] TextMeshProUGUI questionText;
-    [SerializeField] List<QuestionSO> questions = new List<QuestionSO>();
+   // [SerializeField] List<QuestionSO> questions = new List<QuestionSO>();
     QuestionSO currentQuestion;
     
     [Header("Answers")]
@@ -41,13 +41,19 @@ public class Quiz : MonoBehaviour
     public Button twoXDamageButton;
     public bool twoXDamageAvailable;
     public EnemySeen enemySeen;
+    static Quiz instance;
+    public GameSession gameSession;
     void Awake()
     {
+        
+        //ManageSingelton();
         playerController = FindObjectOfType<PlayerController>();
         enemySeen = FindObjectOfType<EnemySeen>();
+        
     }
     void Start()
     {
+        gameSession = FindObjectOfType<GameSession>();
         timer = FindObjectOfType<Timer>();
         quiz = FindObjectOfType<Quiz>();
         health = FindObjectOfType<Health>();
@@ -67,6 +73,19 @@ public class Quiz : MonoBehaviour
             SetButtonState(false);              
         }
     }
+    /*void ManageSingelton()
+    {
+        if(instance != null)
+        {
+            gameObject.SetActive(false);
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }*/
     public void OnAnswerSelected(int index)
     {  
         hasAnsweredEarly = true;
@@ -113,7 +132,7 @@ public class Quiz : MonoBehaviour
                 quiz.gameObject.SetActive(false);
                 isActive = false;
             }
-        if(questions.Count > 0)
+        if(gameSession.questions.Count > 0)
         {
             SetButtonState(true);
             SetDefaultButtonSprites();
@@ -124,12 +143,12 @@ public class Quiz : MonoBehaviour
     }
     void GetRandomQuestion()
     {
-        int index = Random.Range(0,questions.Count);
-        currentQuestion = questions[index];
+        int index = Random.Range(0,gameSession.questions.Count);
+        currentQuestion = gameSession.questions[index];
 
-        if(questions.Contains(currentQuestion))
+        if(gameSession.questions.Contains(currentQuestion))
         {
-            questions.Remove(currentQuestion);
+            gameSession.questions.Remove(currentQuestion);
         }  
     }
    void DisplayQuestion()

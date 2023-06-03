@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public Health playerHealth;
     private Vector3 respawnPoint;
     public GameObject fallDetector;
+
     void Awake() 
     {
         quiz = FindObjectOfType<Quiz>();
@@ -37,6 +38,7 @@ public class PlayerController : MonoBehaviour
         myFeetCollider = GetComponent<BoxCollider2D>();
         respawnPoint = transform.position;
         gravityScaleAtStart = myRigidbody.gravityScale;
+        Debug.Log("girdi");
         quiz.gameObject.SetActive(false);
     }
 

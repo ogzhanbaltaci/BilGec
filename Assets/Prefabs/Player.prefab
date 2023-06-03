@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2036889239222611645}
   - component: {fileID: 2036889239222611646}
-  - component: {fileID: 2036889239222611644}
-  - component: {fileID: 8252856222003723491}
   - component: {fileID: 8332278452344259227}
   - component: {fileID: 8619569842160922989}
-  - component: {fileID: 282161656357246312}
   - component: {fileID: 1808553487}
+  - component: {fileID: 282161656357246312}
+  - component: {fileID: 2036889239222611644}
+  - component: {fileID: 8252856222003723491}
   - component: {fileID: 7687071956306044452}
   - component: {fileID: 5650939157886544768}
   - component: {fileID: 1808553501}
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 59658007
-  m_SortingLayer: 8
+  m_SortingLayer: 9
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 72de0c64f2c6a498096698322c976a67, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -93,48 +93,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &2036889239222611644
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2036889239222611647}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 52538876d875c85489234104936b929f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8252856222003723491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2036889239222611647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0584fab84545ef43ac0b6c16ae1eb01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  runSpeed: 10
-  jumpSpeed: 12
-  climbSpeed: 5
-  deathKick: {x: 10, y: 10}
-  platformsCompCollider: {fileID: 0}
-  hazardsTilemapCollider: {fileID: 0}
-  myAnimator: {fileID: 0}
-  quiz: {fileID: 0}
-  playerHealth: {fileID: 7687071956306044452}
-  fallDetector: {fileID: 0}
 --- !u!50 &8332278452344259227
 Rigidbody2D:
   serializedVersion: 4
@@ -172,6 +130,32 @@ CapsuleCollider2D:
   m_Offset: {x: -0.095228314, y: -0.32601404}
   m_Size: {x: 1.0519575, y: 1.3326856}
   m_Direction: 0
+--- !u!61 &1808553487
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036889239222611647}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 007dba4df5bd88d4ab077937d852fa3f, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.09129795, y: -0.9539922}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.0625, y: 2}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.59404695, y: 0.18981922}
+  m_EdgeRadius: 0
 --- !u!114 &282161656357246312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,32 +186,48 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!61 &1808553487
-BoxCollider2D:
+--- !u!95 &2036889239222611644
+Animator:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2036889239222611647}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 007dba4df5bd88d4ab077937d852fa3f, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.09129795, y: -0.9539922}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.0625, y: 2}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.59404695, y: 0.18981922}
-  m_EdgeRadius: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 52538876d875c85489234104936b929f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8252856222003723491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036889239222611647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0584fab84545ef43ac0b6c16ae1eb01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runSpeed: 8
+  jumpSpeed: 10
+  climbSpeed: 5
+  deathKick: {x: 10, y: 10}
+  platformsCompCollider: {fileID: 0}
+  hazardsTilemapCollider: {fileID: 0}
+  myAnimator: {fileID: 0}
+  quiz: {fileID: 6912708972350419266, guid: 2c811bb5eca6972449dbae37696dbc86, type: 3}
+  playerHealth: {fileID: 7687071956306044452}
+  fallDetector: {fileID: 0}
 --- !u!114 &7687071956306044452
 MonoBehaviour:
   m_ObjectHideFlags: 0
