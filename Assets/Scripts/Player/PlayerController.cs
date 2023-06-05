@@ -25,10 +25,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public Health playerHealth;
     private Vector3 respawnPoint;
     public GameObject fallDetector;
-
+    bool isTriggered;
+    AudioPlayer audioPlayer;
     void Awake() 
     {
         quiz = FindObjectOfType<Quiz>();
+        audioPlayer = FindObjectOfType<AudioPlayer>();
     }
     void Start()
     {
@@ -76,6 +78,7 @@ public class PlayerController : MonoBehaviour
         if(value.isPressed && isGrounded)
         {
             myRigidbody.velocity += new Vector2 (0f, jumpSpeed);
+            audioPlayer.PlayJumpClip();
         }
         
         myAnimator.SetBool("isJumping", true);
@@ -88,6 +91,7 @@ public class PlayerController : MonoBehaviour
 
         bool playerHasHorizantalSpeed = Mathf.Abs(myRigidbody.velocity.x) > Mathf.Epsilon;
         myAnimator.SetBool("isRunning", playerHasHorizantalSpeed);
+        
 
     }
     void FlipSprite()
@@ -143,13 +147,18 @@ public class PlayerController : MonoBehaviour
         }
         else if(other.tag == "Hazards")
         {
-            myAnimator.SetBool("isHurt", true);
-            playerHealth.health -= 10;
-            runSpeed = 0f;
-            myAnimator.SetBool("isJumping", false);
-            myRigidbody.velocity = deathKick;
-            hazardsTilemapCollider.enabled = false;
-            platformsCompCollider.isTrigger = true;
+            if(isTriggered == false)
+            {
+                myAnimator.SetBool("isHurt", true);
+                playerHealth.TakeDamage(10);
+                runSpeed = 0f;
+                myAnimator.SetBool("isJumping", false);
+                myRigidbody.velocity = deathKick;
+                hazardsTilemapCollider.enabled = false;
+                platformsCompCollider.isTrigger = true;
+                isTriggered = true;
+            }
+            
         }
     }
     void OnCollisionExit2D(Collision2D Collider)
@@ -158,6 +167,10 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = false;
         }
+    }
+    void OnTriggerExit2D(Collider2D other)
+    {
+        isTriggered = false;
     }
     /*void Die()
     {

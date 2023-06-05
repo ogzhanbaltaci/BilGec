@@ -8,9 +8,12 @@ public class Health : MonoBehaviour
     [SerializeField] bool isPlayer;
     [SerializeField] public int health = 50;
     Quiz quiz;
+    [SerializeField] bool applyCameraShake;
+    CameraShake cameraShake;
     void Awake() 
     {
         quiz = FindObjectOfType<Quiz>(); 
+        cameraShake = FindObjectOfType<CameraShake>();
     }
     public void DealDamage(bool twoXDamageAvailable)
     {
@@ -18,27 +21,37 @@ public class Health : MonoBehaviour
         if(damageDealer != null && twoXDamageAvailable == true)
         {
             TakeDamage(damageDealer.GetDamage()*2);
+            ShakeCamera();
             //PlayHitEffect();
             //audioPlayer.PlayDamageTakenClip();
             //ShakeCamera();
-            //damageDealer.Hit();
         }
         else if(damageDealer != null)
         {
             TakeDamage(damageDealer.GetDamage());
+            ShakeCamera();
         }
     }
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         health -= damage;
         if(health <= 0)
         {
             StartCoroutine(Die());
+            quiz.enemySeen.cinemachineBrain.enabled = true;
         }
     }
     public void HealthPickup(int healthForHealthPickup)
     {
         health += healthForHealthPickup;
+    }
+    void ShakeCamera()
+    {
+        if(cameraShake != null && applyCameraShake)
+        {
+            cameraShake.Play();
+            Debug.Log("girdishake");
+        }
     }
     public IEnumerator Die() 
     {
@@ -48,11 +61,10 @@ public class Health : MonoBehaviour
             yield return new WaitForSecondsRealtime(0.8f);
             Destroy(gameObject);
             quiz.inQuiz = false;
+            
         }
         else if(quiz.enemySeen.enemyHealth.health <= 0)
         {
-            Debug.Log("girdi");
-            //quiz.playerMovement.enemyAnimator.SetBool("isDead", true);
             quiz.enemySeen.enemyAnimator.SetBool("isDead", true);
             yield return new WaitForSecondsRealtime(0.8f);
             Destroy(gameObject);

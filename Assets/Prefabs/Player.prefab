@@ -219,13 +219,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 8
-  jumpSpeed: 10
+  jumpSpeed: 11.2
   climbSpeed: 5
   deathKick: {x: 10, y: 10}
   platformsCompCollider: {fileID: 0}
   hazardsTilemapCollider: {fileID: 0}
   myAnimator: {fileID: 0}
-  quiz: {fileID: 6912708972350419266, guid: 2c811bb5eca6972449dbae37696dbc86, type: 3}
+  quiz: {fileID: 0}
   playerHealth: {fileID: 7687071956306044452}
   fallDetector: {fileID: 0}
 --- !u!114 &7687071956306044452
@@ -242,6 +242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayer: 1
   health: 50
+  applyCameraShake: 1
 --- !u!114 &5650939157886544768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,3 +271,4 @@ MonoBehaviour:
   enemyHealth: {fileID: 0}
   enemyMovement: {fileID: 0}
   enemyAnimator: {fileID: 0}
+  cinemachineBrain: {fileID: 0}

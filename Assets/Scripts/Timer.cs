@@ -10,7 +10,12 @@ public class Timer : MonoBehaviour
     public bool isAnsweringQuestion;
     public float fillFraction;
     float timerValue;
-
+    bool isPlayed;
+    public AudioSource audioSource;
+    void Awake()
+    {
+        
+    }
     void Update()
     {
         UpdateTimer();
@@ -27,6 +32,11 @@ public class Timer : MonoBehaviour
             if(timerValue > 0)
             {
                 fillFraction = timerValue / timeToCompleteQuestion;
+                if(timerValue <= 5 && isPlayed == false)
+                {
+                    isPlayed = true;
+                    audioSource.Play();
+                }
             }
             else
             {
@@ -38,10 +48,12 @@ public class Timer : MonoBehaviour
         {
              if(timerValue > 0)
             {
+                audioSource.Stop();
                 fillFraction = timerValue / timeToShowCorrectAnswer;
             }
             else
             {
+                isPlayed = false;
                 isAnsweringQuestion = true;
                 timerValue = timeToCompleteQuestion;
                 loadNextQuestion = true;

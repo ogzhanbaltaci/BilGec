@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Cinemachine;
 
 public class EnemySeen : MonoBehaviour
 {
@@ -9,9 +10,11 @@ public class EnemySeen : MonoBehaviour
     public EnemyMovement enemyMovement;
     public Animator enemyAnimator;
     Quiz quiz;
+    public CinemachineBrain cinemachineBrain;
     void Awake()
     {
         quiz = FindObjectOfType<Quiz>();
+       
     }
     
     void Update()
@@ -37,7 +40,7 @@ public class EnemySeen : MonoBehaviour
             quiz.isActive = true;
             quiz.gameObject.SetActive(true);
             quiz.inQuiz = true;
-            Debug.Log(quiz.inQuiz);
+            cinemachineBrain.enabled = false;
             if(quiz.inQuiz == true)
                 enemyMovement.gameObject.GetComponent<EnemyMovement>().EnemyIdle();
         }

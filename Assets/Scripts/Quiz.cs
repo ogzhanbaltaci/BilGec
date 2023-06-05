@@ -43,13 +43,16 @@ public class Quiz : MonoBehaviour
     public EnemySeen enemySeen;
     static Quiz instance;
     public GameSession gameSession;
+    bool displayTriggered;
+    public AudioPlayer audioPlayer;
+    public AudioSource audioSource;
     void Awake()
     {
-        
-        //ManageSingelton();
         playerController = FindObjectOfType<PlayerController>();
         enemySeen = FindObjectOfType<EnemySeen>();
-        
+        audioPlayer = FindObjectOfType<AudioPlayer>();
+        audioSource = FindObjectOfType<AudioSource>();
+        audioPlayer.PlayInGameMusicClip();
     }
     void Start()
     {
@@ -66,32 +69,22 @@ public class Quiz : MonoBehaviour
             hasAnsweredEarly = false;
             GetNextQuestion();
             timer.loadNextQuestion = false;
+            
         }
-        else if(!hasAnsweredEarly && !timer.isAnsweringQuestion)
+        else if(!hasAnsweredEarly && !timer.isAnsweringQuestion && !displayTriggered)
         {
             DisplayAnswer(-1);
             SetButtonState(false);              
         }
     }
-    /*void ManageSingelton()
-    {
-        if(instance != null)
-        {
-            gameObject.SetActive(false);
-            Destroy(gameObject);
-        }
-        else
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-    }*/
     public void OnAnswerSelected(int index)
     {  
         hasAnsweredEarly = true;
         DisplayAnswer(index);     
         SetButtonState(false);
         timer.CancelTimer();
+        //audioSource.Stop();
+        //audioPlayer.GetComponent<AudioSource>().Stop();
         //scoreText.text = "Score: " + scoreKeeper.CalculateScore() + "%";
     }
     void DisplayAnswer(int index)
@@ -100,7 +93,7 @@ public class Quiz : MonoBehaviour
             questionText.text = "Correct";
             health = enemySeen.enemyHealth;
             health.DealDamage(twoXDamageAvailable);
-            Debug.Log(enemySeen.enemyHealth.health);
+            audioPlayer.PlayEnemyHurtClip();
             buttonImage = answerButtons[index].GetComponent<Image>(); 
             buttonImage.sprite = correctAnswerSprite;  
             //scoreKeeper.IncrementCorrectAnswers();            
@@ -108,11 +101,13 @@ public class Quiz : MonoBehaviour
             //audioSource.Play();       
         }
         else {
+            displayTriggered = true;
             correctAnswerIndex = currentQuestion.GetCorrectAnswerIndex();
             string correctAnswer = currentQuestion.GetAnswer(correctAnswerIndex);
             questionText.text = "Sorry, the correct answer was;\n" + correctAnswer;
             health = playerController.playerHealth;
             health.DealDamage(twoXDamageAvailable);
+            audioPlayer.PlayPlayerHurtClip();
             buttonImage = answerButtons[correctAnswerIndex].GetComponent<Image>();
             buttonImage.sprite = correctAnswerSprite;
             if(hasAnsweredEarly){
@@ -127,6 +122,7 @@ public class Quiz : MonoBehaviour
     void GetNextQuestion()
     {   
         twoXDamageAvailable = false;
+        displayTriggered = false;
         if(health.health <= 0)
             {
                 quiz.gameObject.SetActive(false);

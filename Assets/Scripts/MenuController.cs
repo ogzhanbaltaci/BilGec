@@ -13,6 +13,15 @@ public class MenuController : MonoBehaviour
         Debug.Log("Quitting the game");
         Application.Quit();
     }
+    public void TryAgain()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
+    }
+    public void OpenMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 
     
 }
