@@ -4,27 +4,37 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class GameSession : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     [SerializeField] Health playerHealth;
-    static GameSession instance;
+    static GameManager instance;
     public List<QuestionSO> questions = new List<QuestionSO>();
-    void Start()
+    [SerializeField] Canvas deathCanvas;
+    [SerializeField] Canvas winCanvas;
+    void Awake()
     {
+        winCanvas.gameObject.SetActive(false);
+        deathCanvas.gameObject.SetActive(false);
+        Debug.Log("girdi manager awake");
         ManageSingelton();
     }
-    public void ProcessPlayerDeath()
+    void Start()
     {
-        if(playerHealth.health > 10)
-        {
-            TakeLife();
-        }
-        else
-        {
-            //ongoingCanvas.gameObject.SetActive(false);
-            //tryAgainCanvas.gameObject.SetActive(true);
-        }
+        //deathCanvas = GameObject.FindGameObjectWithTag("DeathCanvas");
+        //deathCanvas.enabled = false;
+        //winCanvas.enabled = false;
     }
+    public void DeathCanvasEnabled()
+    {
+        //deathCanvas.enabled = true;
+        deathCanvas.gameObject.SetActive(true);
+    }
+    public void WinCanvasEnabled()
+    {
+        winCanvas.gameObject.SetActive(true);
+        //winCanvas.enabled = true;
+    }
+    
     void TakeLife()
     {
         playerHealth.health -= 10;
@@ -36,10 +46,10 @@ public class GameSession : MonoBehaviour
         //livesText.text = playerLives.ToString();
     }
 
-    public void ResetGameSession()
+    public void ResetGameManager()
     {
         //FindObjectOfType<ScenePersist>().ResetScenePersist();
-        SceneManager.LoadScene(0);
+        //SceneManager.LoadScene(0);
         Destroy(gameObject);
     }
     void ManageSingelton()

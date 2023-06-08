@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MenuController : MonoBehaviour
 {
+    [SerializeField] Canvas settingsCanvas;
+    [SerializeField] Canvas mainMenuCanvas;
     public void OpenLevelsMenu()
     {
         SceneManager.LoadScene("LevelsMenu");
@@ -21,6 +23,12 @@ public class MenuController : MonoBehaviour
     public void OpenMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+    public void OpenSettingsMenu()
+    {
+        mainMenuCanvas.gameObject.SetActive(false);
+        settingsCanvas.gameObject.SetActive(true);
+        //SceneManager.LoadScene("SettingsMenu");
     }
 
     

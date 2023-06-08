@@ -16,6 +16,9 @@ public class AudioPlayer : MonoBehaviour
     [Header("Music")]
     [SerializeField] AudioClip musicClip;
     [SerializeField] [Range(0f, 1f)] float musicClipVolume = 1f;
+    [Header("Item Pickup")]
+    [SerializeField] AudioClip itemPickupClip;
+    [SerializeField] [Range(0f, 1f)] float itemPickupClipVolume = 1f;
     [Header("MenuButton")]
     [SerializeField] AudioClip menuButtonClip;
     [SerializeField] [Range(0f, 1f)] float menuButtonClipVolume = 1f;
@@ -50,6 +53,10 @@ public class AudioPlayer : MonoBehaviour
     {
         audioSource.clip = musicClip;
         audioSource.Play();
+    }
+    public void PlayItemPickupClip()
+    {
+        PlayClip(itemPickupClip, itemPickupClipVolume);
     }
     public void PlayJumpClip()
     {

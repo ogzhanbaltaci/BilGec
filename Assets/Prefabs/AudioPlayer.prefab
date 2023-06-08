@@ -53,6 +53,8 @@ MonoBehaviour:
   enemyHurtClipVolume: 1
   musicClip: {fileID: 8300000, guid: b6dc04f2884eb5b46b675390b1e75e84, type: 3}
   musicClipVolume: 1
+  itemPickupClip: {fileID: 8300000, guid: eb5e1b66d2f395349926f03e0ff23a0b, type: 3}
+  itemPickupClipVolume: 1
   menuButtonClip: {fileID: 8300000, guid: 4c35e3aafdac00542a43b3f22f4186e7, type: 3}
   menuButtonClipVolume: 1
 --- !u!82 &5953915493920233806
@@ -64,7 +66,7 @@ AudioSource:
   m_GameObject: {fileID: 5953915493920233805}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: a659f441f0956584ab2033a797db8dcf, type: 2}
   m_audioClip: {fileID: 8300000, guid: 6979d52fda0579441a2122b95abaf337, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.1

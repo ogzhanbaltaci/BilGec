@@ -49,6 +49,8 @@ public class PlayerController : MonoBehaviour
         Run();
         FlipSprite();
         ClimbLadder();
+        if(quiz.isActive != true)
+            runSpeed = 10f;
         //Die();
     }
 
@@ -57,6 +59,7 @@ public class PlayerController : MonoBehaviour
         if(quiz.isActive == true)
         { 
             runSpeed = 0f;
+            Debug.Log("quizis actve girdi");
         }
         moveInput = value.Get<Vector2>();  
     }
@@ -75,7 +78,7 @@ public class PlayerController : MonoBehaviour
         if(myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Hazards"))){
             return;
         }
-        if(value.isPressed && isGrounded)
+        if(value.isPressed && isGrounded && quiz.isActive != true)
         {
             myRigidbody.velocity += new Vector2 (0f, jumpSpeed);
             audioPlayer.PlayJumpClip();

@@ -10,10 +10,13 @@ public class Health : MonoBehaviour
     Quiz quiz;
     [SerializeField] bool applyCameraShake;
     CameraShake cameraShake;
+    GameManager gameManager;
     void Awake() 
     {
         quiz = FindObjectOfType<Quiz>(); 
         cameraShake = FindObjectOfType<CameraShake>();
+        gameManager = FindObjectOfType<GameManager>();
+        //deathCanvas.enabled = false;
     }
     public void DealDamage(bool twoXDamageAvailable)
     {
@@ -61,6 +64,8 @@ public class Health : MonoBehaviour
             yield return new WaitForSecondsRealtime(0.8f);
             Destroy(gameObject);
             quiz.inQuiz = false;
+            gameManager.DeathCanvasEnabled();
+            //deathCanvas.enabled = true;
             
         }
         else if(quiz.enemySeen.enemyHealth.health <= 0)

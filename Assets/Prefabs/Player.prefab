@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 8
-  jumpSpeed: 11.2
+  jumpSpeed: 10.2
   climbSpeed: 5
   deathKick: {x: 10, y: 10}
   platformsCompCollider: {fileID: 0}

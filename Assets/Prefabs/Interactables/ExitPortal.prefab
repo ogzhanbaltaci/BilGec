@@ -136,6 +136,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelLoadDelay: 1
-  winCanvas: {fileID: 5738866936959585939, guid: 133ab1d29db30594eab5b7d6d2d5e1c8, type: 3}
-  levelsMenu: {fileID: 1805489730047419616, guid: f032009357339784c8f20a7bee6f9a08, type: 3}
-  mainMenu: {fileID: 2937947954540822388, guid: 3de9e77f8d538a94287f92b5698afbe2, type: 3}
+  levelToUnlock: 2
+  winCanvas: {fileID: 0}

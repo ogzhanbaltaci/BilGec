@@ -11,10 +11,12 @@ public class LevelExit : MonoBehaviour
     int nextSceneIndex;
     bool isTriggered = true;
     public int levelToUnlock = 2;
-    [SerializeField] Canvas winCanvas;
+    //[SerializeField] Canvas winCanvas;
+    //GameManager gameManager;
     void Awake()
     {
-        winCanvas.gameObject.SetActive(false);
+        //winCanvas.gameObject.SetActive(false);
+        //gameManager = Find
     }
     void OnTriggerEnter2D(Collider2D other) 
     {
@@ -23,8 +25,14 @@ public class LevelExit : MonoBehaviour
             if(other.tag == "Player" /*&& currentSceneIndex + 1 != SceneManager.sceneCountInBuildSettings*/){    
                 //StartCoroutine(LoadNextLevel());
                 //isTriggered = false;
-                PlayerPrefs.SetInt("levelReached", levelToUnlock);
-                winCanvas.gameObject.SetActive(true);
+                int levelReached = PlayerPrefs.GetInt("levelReached", 1);
+                
+                if(levelReached < levelToUnlock)
+                    PlayerPrefs.SetInt("levelReached", levelToUnlock);
+                
+                Debug.Log("girdi on trigger");
+                FindObjectOfType<GameManager>().WinCanvasEnabled();
+                //winCanvas.gameObject.SetActive(true);
             }
             /*else{ 
                 FindObjectOfType<GameSession>().gameFinished = true;
@@ -47,9 +55,6 @@ public class LevelExit : MonoBehaviour
         SceneManager.LoadScene(nextSceneIndex);
         
     }
-    public void LoadLevelsMenu()
-    {
-        SceneManager.LoadScene("LevelsMenu");
-    }
+    
     
 }

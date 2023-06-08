@@ -42,7 +42,7 @@ public class Quiz : MonoBehaviour
     public bool twoXDamageAvailable;
     public EnemySeen enemySeen;
     static Quiz instance;
-    public GameSession gameSession;
+    public GameManager gameManager;
     bool displayTriggered;
     public AudioPlayer audioPlayer;
     public AudioSource audioSource;
@@ -56,7 +56,7 @@ public class Quiz : MonoBehaviour
     }
     void Start()
     {
-        gameSession = FindObjectOfType<GameSession>();
+        gameManager = FindObjectOfType<GameManager>();
         timer = FindObjectOfType<Timer>();
         quiz = FindObjectOfType<Quiz>();
         health = FindObjectOfType<Health>();
@@ -128,7 +128,7 @@ public class Quiz : MonoBehaviour
                 quiz.gameObject.SetActive(false);
                 isActive = false;
             }
-        if(gameSession.questions.Count > 0)
+        if(gameManager.questions.Count > 0)
         {
             SetButtonState(true);
             SetDefaultButtonSprites();
@@ -139,12 +139,12 @@ public class Quiz : MonoBehaviour
     }
     void GetRandomQuestion()
     {
-        int index = Random.Range(0,gameSession.questions.Count);
-        currentQuestion = gameSession.questions[index];
+        int index = Random.Range(0,gameManager.questions.Count);
+        currentQuestion = gameManager.questions[index];
 
-        if(gameSession.questions.Contains(currentQuestion))
+        if(gameManager.questions.Contains(currentQuestion))
         {
-            gameSession.questions.Remove(currentQuestion);
+            gameManager.questions.Remove(currentQuestion);
         }  
     }
    void DisplayQuestion()

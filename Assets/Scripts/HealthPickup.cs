@@ -7,9 +7,10 @@ public class HealthPickup : MonoBehaviour
     [SerializeField] int healthForHealthPickup = 20;
     [SerializeField] Health playerHealth;
     bool wasCollected = false;
+    AudioPlayer audioPlayer;
     void Awake()
     {
-        
+        audioPlayer = FindObjectOfType<AudioPlayer>();
     }
     void OnTriggerEnter2D(Collider2D other) 
     {
@@ -17,7 +18,7 @@ public class HealthPickup : MonoBehaviour
         {
             wasCollected = true;
             playerHealth.HealthPickup(healthForHealthPickup);
-            //AudioSource.PlayClipAtPoint(coinPickupSFX, Camera.main.transform.position);
+            audioPlayer.PlayItemPickupClip();
             Destroy(gameObject);
         }   
     }
