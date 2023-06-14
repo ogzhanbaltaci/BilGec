@@ -26,9 +26,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Levels/Level 4.unity
     guid: bd5e4d93ee35b604f9bbfbf4ff279382
-  - enabled: 1
+  - enabled: 0
     path: Assets/Levels/SampleScene.unity
     guid: 3fc8acdd13e6c734bafef6554d6fdbcd
   m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 70550bf0f1655894d909ef848675e0bb, type: 2}
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: b0a87f9f097b701439aad9d0d1aa857f, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 892c96792f1439048aa8a5938a11397a, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: bc0c2e1c9cc03d545a8d87a3a74d69c2, type: 2}

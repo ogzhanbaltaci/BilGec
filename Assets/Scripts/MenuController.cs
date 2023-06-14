@@ -28,8 +28,5 @@ public class MenuController : MonoBehaviour
     {
         mainMenuCanvas.gameObject.SetActive(false);
         settingsCanvas.gameObject.SetActive(true);
-        //SceneManager.LoadScene("SettingsMenu");
     }
-
-    
 }

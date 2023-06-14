@@ -14,7 +14,6 @@ public class EnemySeen : MonoBehaviour
     void Awake()
     {
         quiz = FindObjectOfType<Quiz>();
-       
     }
     
     void Update()
@@ -24,7 +23,6 @@ public class EnemySeen : MonoBehaviour
             enemyMovement.enemyHealthBar.value = enemyHealth.health;
             enemyMovement.enemyHealthText.text = "CAN : " + enemyHealth.health.ToString();
         }
-            
     }
 
     void OnTriggerEnter2D(Collider2D other) 

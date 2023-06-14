@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7de7fd8952ca6b4e91542357fd933fb, type: 3}
   m_Name: Question 50
   m_EditorClassIdentifier: 
-  question: "eusun kafatas\u0131ndan komple z\u0131rhl\u0131 olarak do\u011Fan yunan
+  question: "Zeusun kafatas\u0131ndan komple z\u0131rhl\u0131 olarak do\u011Fan yunan
     tanr\u0131s\u0131 kimdir?"
   answers:
   - Artemis

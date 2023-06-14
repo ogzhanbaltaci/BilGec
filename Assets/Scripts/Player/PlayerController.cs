@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.Tilemaps;
+using UnityStandardAssets.CrossPlatformInput;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] public float runSpeed = 10f;
@@ -19,7 +20,6 @@ public class PlayerController : MonoBehaviour
     CapsuleCollider2D myBodyCollider;
     BoxCollider2D myFeetCollider;
     bool isGrounded;
-    //bool playerHasHorizantalSpeed;
     float gravityScaleAtStart;
     public Quiz quiz;
     [SerializeField] public Health playerHealth;
@@ -49,8 +49,8 @@ public class PlayerController : MonoBehaviour
         Run();
         FlipSprite();
         ClimbLadder();
-        if(quiz.isActive != true)
-            runSpeed = 10f;
+        /*if(quiz.isActive != true)
+            runSpeed = 10f;*/
         //Die();
     }
 
@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour
     }
     void ClimbLadder()
     {
-        if(!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Climbing"))){
+        if(!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Climbing")) || quiz.isActive == true){
             myRigidbody.gravityScale = gravityScaleAtStart;
             myAnimator.SetBool("isClimbing", false);
             return;
@@ -175,13 +175,4 @@ public class PlayerController : MonoBehaviour
     {
         isTriggered = false;
     }
-    /*void Die()
-    {
-       if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Hazards"))) 
-       {
-            myAnimator.SetTrigger("isHurt");
-            myRigidbody.velocity = deathKick;
-            FindObjectOfType<GameSession>().ProcessPlayerDeath();
-       }
-    } */
 }

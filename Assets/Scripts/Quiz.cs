@@ -95,10 +95,7 @@ public class Quiz : MonoBehaviour
             health.DealDamage(twoXDamageAvailable);
             audioPlayer.PlayEnemyHurtClip();
             buttonImage = answerButtons[index].GetComponent<Image>(); 
-            buttonImage.sprite = correctAnswerSprite;  
-            //scoreKeeper.IncrementCorrectAnswers();            
-            //audioSource.clip = trueAnswer;
-            //audioSource.Play();       
+            buttonImage.sprite = correctAnswerSprite;    
         }
         else {
             displayTriggered = true;
@@ -113,10 +110,7 @@ public class Quiz : MonoBehaviour
             if(hasAnsweredEarly){
                 buttonImage = answerButtons[index].GetComponent<Image>(); 
                 buttonImage.sprite = wrongAnswerSprite;
-                //audioSource.clip = wrongAnswer;
-                //audioSource.Play();
             }
-            //scoreText.text = "Score: " + scoreKeeper.CalculateScore() + "%";
         }
     }
     void GetNextQuestion()
@@ -134,7 +128,6 @@ public class Quiz : MonoBehaviour
             SetDefaultButtonSprites();
             GetRandomQuestion();
             DisplayQuestion();
-            //scoreKeeper.IncrementQuestionsSeen();
         }    
     }
     void GetRandomQuestion()
@@ -149,8 +142,6 @@ public class Quiz : MonoBehaviour
     }
    void DisplayQuestion()
    {
-        //audioSource.clip = newQuestion;
-        //audioSource.Play();
         questionText.text = currentQuestion.GetQuestion();
 
         for(int i = 0; i < answerButtons.Length; i++)

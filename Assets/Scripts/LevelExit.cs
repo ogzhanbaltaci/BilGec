@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+using TMPro;
 public class LevelExit : MonoBehaviour
 {
     [SerializeField] float levelLoadDelay = 1f;
@@ -11,50 +11,43 @@ public class LevelExit : MonoBehaviour
     int nextSceneIndex;
     bool isTriggered = true;
     public int levelToUnlock = 2;
-    //[SerializeField] Canvas winCanvas;
-    //GameManager gameManager;
+    LevelGemController levelGemController;
+    Animator portalAnimator;
+    TextMeshProUGUI textMeshProUGUI;
     void Awake()
     {
-        //winCanvas.gameObject.SetActive(false);
-        //gameManager = Find
+        levelGemController = FindAnyObjectByType<LevelGemController>();
+        portalAnimator = GetComponent<Animator>();
+        textMeshProUGUI = GetComponentInChildren<TextMeshProUGUI>();
+    }
+    void Update()
+    {
+        if(levelGemController.collectedGemCount == levelGemController.totalGemCount)
+        {
+            portalAnimator.SetBool("isActive", true);
+            textMeshProUGUI.text = "";
+        }
     }
     void OnTriggerEnter2D(Collider2D other) 
     {
         if(isTriggered == true){
             currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-            if(other.tag == "Player" /*&& currentSceneIndex + 1 != SceneManager.sceneCountInBuildSettings*/){    
-                //StartCoroutine(LoadNextLevel());
-                //isTriggered = false;
+            if(other.tag == "Player" 
+                && levelGemController.collectedGemCount == levelGemController.totalGemCount){    
                 int levelReached = PlayerPrefs.GetInt("levelReached", 1);
-                
+        
                 if(levelReached < levelToUnlock)
                     PlayerPrefs.SetInt("levelReached", levelToUnlock);
                 
                 Debug.Log("girdi on trigger");
                 FindObjectOfType<GameManager>().WinCanvasEnabled();
-                //winCanvas.gameObject.SetActive(true);
             }
-            /*else{ 
-                FindObjectOfType<GameSession>().gameFinished = true;
-                FindObjectOfType<GameSession>().TotalScore();
-                FindObjectOfType<GameSession>().winCanvas.gameObject.SetActive(true);
-            
-                isTriggered = false;
+            else
+            { 
+                textMeshProUGUI.text = "Portalı açmak için önce gerekli olan bütün elmasları toplamalısın!";
 
-            }*/
+            }
         }
         
-    }
-    IEnumerator LoadNextLevel()
-    {
-        yield return new WaitForSecondsRealtime(levelLoadDelay);
-        /*currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        nextSceneIndex = currentSceneIndex + 1;*/
-
-        //FindObjectOfType<ScenePersist>().ResetScenePersist();
-        SceneManager.LoadScene(nextSceneIndex);
-        
-    }
-    
-    
+    }   
 }

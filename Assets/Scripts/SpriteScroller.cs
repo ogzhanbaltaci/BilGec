@@ -12,7 +12,6 @@ public class SpriteScroller : MonoBehaviour
         material = GetComponent<SpriteRenderer>().material;
     }
 
-    
     void Update()
     {
         offset = moveSpeed * Time.deltaTime;

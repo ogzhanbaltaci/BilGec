@@ -6,34 +6,43 @@ EditorUserSettings:
   serializedVersion: 4
   m_ConfigSettings:
     RecentlyUsedSceneGuid-0:
-      value: 5500560203545f0a0e085b20447b5c44404e1b282d7d7f3675714a6ab7b1303c
+      value: 55000d5450010a5a0e5b5a7314210a44434f4b28287c2264292d1e63e1b26c6e
       flags: 0
     RecentlyUsedSceneGuid-1:
-      value: 55000d5450010a5a0e5b5a7314210a44434f4b28287c2264292d1e63e1b26c6e
+      value: 5257010755565e5a0f5e0d2149270d44174e497f7e7923312b2c4831e1b1363a
       flags: 0
     RecentlyUsedSceneGuid-2:
       value: 5057575e04560d5f5c5d097413740c4414161e2f2a7e7365792d4b35e6e2373c
       flags: 0
     RecentlyUsedSceneGuid-3:
-      value: 0155010351515008080b5f7712750f44104e1a282a2a20642b2f4f64bbb36c6a
+      value: 5b550253040c5c0358560d7046745c444715487d2d7d70642e2a1f63e4b1373c
       flags: 0
     RecentlyUsedSceneGuid-4:
       value: 000952020453085d090c557544765e441716417c2d2e71622b7f1e35e0e1636b
       flags: 0
     RecentlyUsedSceneGuid-5:
-      value: 5706065156515c085d5d592015770744124f4d282d7e7364292f1963e3b36c3c
+      value: 0155010351515008080b5f7712750f44104e1a282a2a20642b2f4f64bbb36c6a
       flags: 0
     RecentlyUsedSceneGuid-6:
-      value: 53040d5257020a085e56552740720c4446164a73797f20332e7f4932bab76c6a
+      value: 0652550054545a0a5e0c587511720f44434f4873287c7e317c7d4837e6b4673c
       flags: 0
     RecentlyUsedSceneGuid-7:
-      value: 5b550253040c5c0358560d7046745c444715487d2d7d70642e2a1f63e4b1373c
+      value: 5706065156515c085d5d592015770744124f4d282d7e7364292f1963e3b36c3c
       flags: 0
     RecentlyUsedSceneGuid-8:
-      value: 5257010755565e5a0f5e0d2149270d44174e497f7e7923312b2c4831e1b1363a
+      value: 070650045004080e5c0a0873457b0b444f164979297e77697d7a4465b1b2653d
       flags: 0
     RecentlyUsedSceneGuid-9:
-      value: 070650045004080e5c0a0873457b0b444f164979297e77697d7a4465b1b2653d
+      value: 53040d5257020a085e56552740720c4446164a73797f20332e7f4932bab76c6a
+      flags: 0
+    UnityRemoteDevice:
+      value: 5757065753060f0e5b575d7512205b1442124a7d7b292731292b4d61b7e1666ab4e667ecb76d3b3a
+      flags: 0
+    UnityRemoteJoystickSource:
+      value: 315459091150
+      flags: 0
+    UnityRemoteResolution:
+      value: 2d5e460b0459
       flags: 0
     vcSharedLogLevel:
       value: 0d5e400f0650

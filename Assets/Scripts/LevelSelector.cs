@@ -19,7 +19,6 @@ public class LevelSelector : MonoBehaviour
                 levelButtons[i].interactable = false;
         }
     }
-
     public void OpenScene(){
         SceneManager.LoadScene("Level " + level.ToString());
     }
