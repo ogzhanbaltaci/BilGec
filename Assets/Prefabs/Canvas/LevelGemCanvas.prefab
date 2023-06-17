@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 8554795381697012584}
   - component: {fileID: 4626318093765023553}
   - component: {fileID: 7406147380248932346}
+  - component: {fileID: 4790132250487746808}
   m_Layer: 5
   m_Name: LevelGemCanvas
   m_TagString: Untagged
@@ -110,7 +111,7 @@ RectTransform:
   - {fileID: 1529481990364001628}
   - {fileID: 9040088001951768162}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -180,6 +181,21 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &4790132250487746808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7243638094882260948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6d5c6dcbbb1d9542a4daa62eafee503, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelGemText: {fileID: 0}
+  totalGemCount: 1
+  collectedGemCount: 0
 --- !u!1 &7542626878253787439
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 8619569842160922989}
   - component: {fileID: 1808553487}
   - component: {fileID: 2036889239222611644}
-  - component: {fileID: 8252856222003723491}
   - component: {fileID: 7687071956306044452}
   - component: {fileID: 5650939157886544768}
   - component: {fileID: 1808553501}
@@ -39,7 +38,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2036889239222611646
 SpriteRenderer:
@@ -152,8 +151,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.095228314, y: -0.32601404}
-  m_Size: {x: 1.0519575, y: 1.3326856}
+  m_Offset: {x: -0.07926893, y: -0.30240983}
+  m_Size: {x: 0.82852554, y: 1.2854773}
   m_Direction: 0
 --- !u!61 &1808553487
 BoxCollider2D:
@@ -184,10 +183,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.09129795, y: -0.9539922}
+  m_Offset: {x: -0.091297954, y: -0.9683692}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -198,7 +197,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.59404695, y: 0.18981922}
+  m_Size: {x: 0.59404695, y: 0.21857321}
   m_EdgeRadius: 0
 --- !u!95 &2036889239222611644
 Animator:
@@ -221,28 +220,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8252856222003723491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2036889239222611647}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0584fab84545ef43ac0b6c16ae1eb01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  runSpeed: 8
-  jumpSpeed: 10.2
-  climbSpeed: 5
-  deathKick: {x: 10, y: 10}
-  platformsCompCollider: {fileID: 0}
-  hazardsTilemapCollider: {fileID: 0}
-  myAnimator: {fileID: 0}
-  quiz: {fileID: 0}
-  playerHealth: {fileID: 7687071956306044452}
-  fallDetector: {fileID: 0}
 --- !u!114 &7687071956306044452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,14 +276,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19b967ab12bac0c44891fe82013d137b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 8
-  jumpSpeed: 10.2
+  runSpeed: 7
+  jumpSpeed: 11
   climbSpeed: 5
   deathKick: {x: 10, y: 10}
   platformsCompCollider: {fileID: 0}
   hazardsTilemapCollider: {fileID: 0}
   myAnimator: {fileID: 0}
-  isGrounded: 0
   quiz: {fileID: 0}
   playerHealth: {fileID: 0}
-  fallDetector: {fileID: 0}

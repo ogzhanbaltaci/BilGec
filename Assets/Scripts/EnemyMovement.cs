@@ -9,6 +9,8 @@ public class EnemyMovement : MonoBehaviour
     Rigidbody2D myRigidbody;
     BoxCollider2D enemyFootCollider;
     [SerializeField] public Slider enemyHealthBar;
+    [SerializeField] float sizeX = 1f;
+    [SerializeField] float sizeY = 1f;
     public TextMeshProUGUI enemyHealthText;
     public Quiz quiz;
     
@@ -37,7 +39,7 @@ public class EnemyMovement : MonoBehaviour
     }
     void FlipEnemyFacing()
     {
-        transform.localScale = new Vector2 (-(Mathf.Sign(myRigidbody.velocity.x)), 1f);
+        transform.localScale = new Vector2 (-(Mathf.Sign(myRigidbody.velocity.x) * sizeX), sizeY);
         enemyHealthBar.transform.localScale = new Vector2 (-0.01f, 0.02f);
         enemyHealthText.transform.localScale = new Vector2 (-(Mathf.Sign(enemyHealthText.transform.localScale.x)), 1f);
     }

@@ -1,0 +1,140 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6083418597995271563
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 132053104291741231, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 132053104291741231, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 351670503045386560, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 351670503045386560, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 351670503045386560, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: m_Color.b
+      value: 0.41926384
+      objectReference: {fileID: 0}
+    - target: {fileID: 351670503045386560, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: m_Color.g
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 351670503045386560, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 351670503045386563, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: m_Size.x
+      value: 0.067056656
+      objectReference: {fileID: 0}
+    - target: {fileID: 351670503045386563, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: m_Size.y
+      value: 0.38845444
+      objectReference: {fileID: 0}
+    - target: {fileID: 351670503045386563, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 351670503045386563, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.7955084
+      objectReference: {fileID: 0}
+    - target: {fileID: 351670503045386563, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: m_Offset.y
+      value: -1.2134266
+      objectReference: {fileID: 0}
+    - target: {fileID: 351670503045386567, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 351670503045386567, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 351670503045386567, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 351670503045386567, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 351670503045386567, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 351670503045386567, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 351670503045386567, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 351670503045386567, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 351670503045386567, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 351670503045386567, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 351670503045386567, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 351670503045386567, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 351670503045386567, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 351670503045386569, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: m_Name
+      value: Slimer Angry (Enemy) Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 351670503045386572, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 351670503045386574, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: health
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 351670503045386575, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: sizeX
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 351670503045386575, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: sizeY
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1877885731294052673, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 351670503045386572, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}

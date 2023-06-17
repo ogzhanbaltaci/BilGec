@@ -11,9 +11,12 @@ public class EnemySeen : MonoBehaviour
     public Animator enemyAnimator;
     Quiz quiz;
     public CinemachineBrain cinemachineBrain;
+    PlayerMobileMovement playerMobileMovement;
     void Awake()
     {
         quiz = FindObjectOfType<Quiz>();
+        cinemachineBrain = FindObjectOfType<CinemachineBrain>();
+        playerMobileMovement = FindObjectOfType<PlayerMobileMovement>();
     }
     
     void Update()
@@ -27,7 +30,7 @@ public class EnemySeen : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) 
     {
-        if(other.gameObject.CompareTag("Enemy"))
+        if(other.gameObject.CompareTag("Enemy") && playerMobileMovement.isFalling != true)
         {
             enemyHealth = other.gameObject.GetComponent<Health>();
             enemyMovement = other.gameObject.GetComponent<EnemyMovement>();

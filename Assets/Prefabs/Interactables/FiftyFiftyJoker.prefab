@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4531489007002726311}
   - component: {fileID: 4531489007002726310}
   m_Layer: 11
-  m_Name: FiftyFiftyJoker
+  m_Name: fiftyFiftyJoker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,7 +33,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -79,9 +79,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 133946109
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a66bece8951bc684e912c81bcd57d4ca, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d0c3d5f995940ba48a6d9a7695f6a833, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -102,6 +102,25 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -128,5 +147,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb63b59bb8874e64d971be725e69f686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTwoXDamageButton: 1
-  isFiftyFiftyButton: 0
+  isTwoXDamageButton: 0
+  isFiftyFiftyButton: 1

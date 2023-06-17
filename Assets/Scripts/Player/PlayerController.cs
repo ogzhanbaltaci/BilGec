@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     public Quiz quiz;
     [SerializeField] public Health playerHealth;
     private Vector3 respawnPoint;
-    public GameObject fallDetector;
+    //public GameObject fallDetector;
     bool isTriggered;
     AudioPlayer audioPlayer;
     void Awake() 
@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
     }
     void Start()
     {
+        playerHealth = GetComponent<Health>();
         myRigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         myBodyCollider = GetComponent<CapsuleCollider2D>();
@@ -141,7 +142,7 @@ public class PlayerController : MonoBehaviour
             platformsCompCollider.isTrigger = false;
             hazardsTilemapCollider.enabled = true;
             myAnimator.SetBool("isHurt", false);
-            runSpeed = 10f;
+            runSpeed = 8f;
             transform.position = respawnPoint;
         }
         else if(other.tag == "Checkpoint")
