@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ground
+  - Ladder
+  - Enemy
+  - FallDetector
+  - Checkpoint
+  - Hazards
+  - DeathCanvas
   layers:
   - Default
   - TransparentFX
@@ -11,14 +18,14 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Ground
+  - Climbing
+  - Player
+  - Background
+  - Enemies
+  - Interactables
+  - Hazards
+  - UITexts
   - 
   - 
   - 
@@ -44,6 +51,30 @@ TagManager:
   - name: Background
     uniqueID: 1477190233
     locked: 0
-  - name: New Layer 2
+  - name: Eniviroment
+    uniqueID: 4012283903
+    locked: 0
+  - name: Water
     uniqueID: 3741129533
+    locked: 0
+  - name: Hazards
+    uniqueID: 4090465443
+    locked: 0
+  - name: Platforms
+    uniqueID: 1650232019
+    locked: 0
+  - name: Climbing
+    uniqueID: 1172283115
+    locked: 0
+  - name: Interactables
+    uniqueID: 133946109
+    locked: 0
+  - name: Enemies
+    uniqueID: 1533112429
+    locked: 0
+  - name: Player
+    uniqueID: 59658007
+    locked: 0
+  - name: UITexts
+    uniqueID: 4275979289
     locked: 0
