@@ -39,15 +39,12 @@ public class LevelExit : MonoBehaviour
                 if(levelReached < levelToUnlock)
                     PlayerPrefs.SetInt("levelReached", levelToUnlock);
                 
-                Debug.Log("girdi on trigger");
                 FindObjectOfType<GameManager>().WinCanvasEnabled();
             }
             else
             { 
                 textMeshProUGUI.text = "Portalı açmak için önce gerekli olan bütün elmasları toplamalısın!";
-
             }
         }
-        
     }   
 }

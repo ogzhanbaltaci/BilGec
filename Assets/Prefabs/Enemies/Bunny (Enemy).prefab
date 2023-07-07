@@ -671,7 +671,7 @@ Transform:
   m_Children:
   - {fileID: 683990565}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2592234221443107824
 SpriteRenderer:
@@ -867,6 +867,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   enemyHealthBar: {fileID: 1274094160}
+  sizeX: 1
+  sizeY: 1
   enemyHealthText: {fileID: 1633290664}
   quiz: {fileID: 0}
 --- !u!114 &2592234221443107817
@@ -934,8 +936,8 @@ EdgeCollider2D:
   m_Points:
   - {x: 0.24962711, y: -0.5701953}
   - {x: 2.1266975, y: -1.1581264}
-  - {x: 5.573061, y: -1.3121147}
-  - {x: 5.5521, y: 1.8332161}
+  - {x: 5.4242296, y: -1.3121147}
+  - {x: 5.4363422, y: 1.8332161}
   - {x: 2.1572542, y: 1.0812563}
   - {x: 0.26589012, y: -0.53114116}
   m_AdjacentStartPoint: {x: 0, y: 0}

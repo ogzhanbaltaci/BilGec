@@ -239,8 +239,8 @@ EdgeCollider2D:
   - {x: 1.235393, y: 0.6789646}
   - {x: 2.809824, y: 1.063786}
   - {x: 3.2552352, y: 1.1199317}
-  - {x: 4.3911886, y: 1.1528726}
-  - {x: 4.3972454, y: -0.970057}
+  - {x: 4.308301, y: 1.1528726}
+  - {x: 4.2148914, y: -0.9203243}
   - {x: 0.17970753, y: -0.6095915}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
@@ -296,6 +296,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   enemyHealthBar: {fileID: 5824601002643636799}
+  sizeX: 1
+  sizeY: 1
   enemyHealthText: {fileID: 8846372985930514909}
   quiz: {fileID: 0}
 --- !u!114 &351670503045386568

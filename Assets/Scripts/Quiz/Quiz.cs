@@ -31,7 +31,6 @@ public class Quiz : MonoBehaviour
     
     Health health;
     public bool isActive;
-    //public PlayerController playerController;
     public PlayerMobileMovement playerMobileMovement;
     Quiz quiz;
     public bool inQuiz;
@@ -39,7 +38,7 @@ public class Quiz : MonoBehaviour
     bool twoXDamageAvailable;
     public EnemySeen enemySeen;
     static Quiz instance;
-    public GameManager gameManager;
+    public QuestionsManager questionsManager;
     bool displayTriggered;
     public AudioPlayer audioPlayer;
     public AudioSource audioSource;
@@ -54,7 +53,7 @@ public class Quiz : MonoBehaviour
     }
     void Start()
     {
-        gameManager = FindObjectOfType<GameManager>();
+        questionsManager = FindObjectOfType<QuestionsManager>();
         timer = FindObjectOfType<Timer>();
         quiz = FindObjectOfType<Quiz>();
         health = FindObjectOfType<Health>();
@@ -121,7 +120,7 @@ public class Quiz : MonoBehaviour
                 quiz.gameObject.SetActive(false);
                 isActive = false;
             }
-        if(gameManager.questions.Count > 0)
+        if(questionsManager.questions.Count > 0)
         {
             SetButtonState(true);
             SetDefaultButtonSprites();
@@ -131,12 +130,12 @@ public class Quiz : MonoBehaviour
     }
     void GetRandomQuestion()
     {
-        int index = Random.Range(0,gameManager.questions.Count);
-        currentQuestion = gameManager.questions[index];
+        int index = Random.Range(0,questionsManager.questions.Count);
+        currentQuestion = questionsManager.questions[index];
 
-        if(gameManager.questions.Contains(currentQuestion))
+        if(questionsManager.questions.Contains(currentQuestion))
         {
-            gameManager.questions.Remove(currentQuestion);
+            questionsManager.questions.Remove(currentQuestion);
         }  
     }
    void DisplayQuestion()

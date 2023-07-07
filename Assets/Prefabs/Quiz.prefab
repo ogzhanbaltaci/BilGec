@@ -1773,7 +1773,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 29.882004}
+  m_AnchoredPosition: {x: 0, y: 34.6}
   m_SizeDelta: {x: 800, y: 351.07}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6912708972318545962
@@ -1837,7 +1837,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -1867,7 +1867,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 116.049835, y: 189.72719, z: 110.017426, w: 298.59372}
+  m_margin: {x: 132.90067, y: 189.72719, z: 102.5282, w: 298.59372}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2003,7 +2003,6 @@ MonoBehaviour:
   defaultAnswerSprite: {fileID: 21300000, guid: a84cd832af586b34584cf262b527a4ac, type: 3}
   correctAnswerSprite: {fileID: 21300000, guid: 53eda8c464e4f174db0639d38b5f21c3, type: 3}
   wrongAnswerSprite: {fileID: 21300000, guid: a8714cde864379b4c8c75dd7a97efcd8, type: 3}
-  another5050Chance: 0
   fiftyfiftyButton: {fileID: 6912708970934002185}
   isActive: 0
   playerMobileMovement: {fileID: 0}

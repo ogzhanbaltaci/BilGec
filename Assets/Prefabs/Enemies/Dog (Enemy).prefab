@@ -355,6 +355,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   enemyHealthBar: {fileID: 6889601138788745866}
+  sizeX: 1
+  sizeY: 1
   enemyHealthText: {fileID: 3739746453757918210}
   quiz: {fileID: 0}
 --- !u!114 &4728808157016947862
@@ -517,8 +519,8 @@ EdgeCollider2D:
   - {x: 0.33618546, y: 0.18732011}
   - {x: 1.4640999, y: 1.0397236}
   - {x: 2.611824, y: 1.2672116}
-  - {x: 5.0840244, y: 1.4798288}
-  - {x: 5.01272, y: -0.34845555}
+  - {x: 4.653187, y: 1.4798288}
+  - {x: 4.6568108, y: -0.34845555}
   - {x: 0.31943512, y: -0.35590827}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}

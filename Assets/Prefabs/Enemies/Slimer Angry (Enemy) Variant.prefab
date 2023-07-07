@@ -132,6 +132,46 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1877885731294052673, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: m_Points.Array.data[1].x
+      value: 1.2511363
+      objectReference: {fileID: 0}
+    - target: {fileID: 1877885731294052673, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: m_Points.Array.data[1].y
+      value: 0.5215473
+      objectReference: {fileID: 0}
+    - target: {fileID: 1877885731294052673, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: m_Points.Array.data[2].x
+      value: 1.9597702
+      objectReference: {fileID: 0}
+    - target: {fileID: 1877885731294052673, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: m_Points.Array.data[2].y
+      value: 0.7332101
+      objectReference: {fileID: 0}
+    - target: {fileID: 1877885731294052673, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: m_Points.Array.data[3].x
+      value: 3.1135612
+      objectReference: {fileID: 0}
+    - target: {fileID: 1877885731294052673, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: m_Points.Array.data[3].y
+      value: 0.94677305
+      objectReference: {fileID: 0}
+    - target: {fileID: 1877885731294052673, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: m_Points.Array.data[4].x
+      value: 3.6355867
+      objectReference: {fileID: 0}
+    - target: {fileID: 1877885731294052673, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: m_Points.Array.data[4].y
+      value: 1.0111976
+      objectReference: {fileID: 0}
+    - target: {fileID: 1877885731294052673, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: m_Points.Array.data[5].x
+      value: 3.562933
+      objectReference: {fileID: 0}
+    - target: {fileID: 1877885731294052673, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
+      propertyPath: m_Points.Array.data[5].y
+      value: -0.93857336
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 351670503045386572, guid: 6145e794bf268e4409c6e36c65ca0a07, type: 3}
     m_RemovedGameObjects: []

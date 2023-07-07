@@ -7,14 +7,14 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     static GameManager instance;
-    public List<QuestionSO> questions = new List<QuestionSO>();
     [SerializeField] Canvas deathCanvas;
     [SerializeField] Canvas winCanvas;
+    [SerializeField] Canvas mobileControlsCanvas;
     void Awake()
     {
         winCanvas.gameObject.SetActive(false);
         deathCanvas.gameObject.SetActive(false);
-        ManageSingelton();
+        ManageSingleton();
     }
     public void DeathCanvasEnabled()
     {
@@ -24,11 +24,27 @@ public class GameManager : MonoBehaviour
     {
         winCanvas.gameObject.SetActive(true);
     }
+    public void MobileControlsCanvasEnabled()
+    {
+        mobileControlsCanvas.gameObject.SetActive(true);
+    }
+    public void WinCanvasDisabled()
+    {
+        winCanvas.gameObject.SetActive(false);
+    }
+    public void DeathCanvasDisabled()
+    {
+        deathCanvas.gameObject.SetActive(false);
+    }
+    public void MobileControlsCanvasDisabled()
+    {
+        mobileControlsCanvas.gameObject.SetActive(false);
+    }
     public void ResetGameManager()
     {
         Destroy(gameObject);
     }
-    void ManageSingelton()
+    void ManageSingleton()
     {
         if(instance != null)
         {
@@ -41,4 +57,5 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
     }
+    
 }

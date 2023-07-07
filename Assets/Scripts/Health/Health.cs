@@ -49,7 +49,6 @@ public class Health : MonoBehaviour
         if(cameraShake != null && applyCameraShake)
         {
             cameraShake.Play();
-            Debug.Log("girdishake");
         }
     }
     public IEnumerator Die() 

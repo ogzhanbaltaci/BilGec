@@ -51,7 +51,7 @@ public class PlayerMobileMovement : MonoBehaviour
     {
         CheckInput();
         ClimbLadder();
-        if(quiz.isActive != true && isPlaying(myAnimator, "isHurt"))
+        if(quiz.isActive != true && isFalling != true)
             runSpeed = 7f;
     }
     private void FixedUpdate() 
@@ -85,6 +85,7 @@ public class PlayerMobileMovement : MonoBehaviour
             audioPlayer.PlayJumpClip();
             myAnimator.SetBool("isJumping", true);
         }
+        
     }
     private void Movement()
     {
@@ -129,6 +130,7 @@ public class PlayerMobileMovement : MonoBehaviour
             runSpeed = 7f;
             transform.position = respawnPoint;
             isFalling = false;
+            isGrounded = true;
         }
         else if(other.tag == "Checkpoint")
         {
@@ -138,8 +140,8 @@ public class PlayerMobileMovement : MonoBehaviour
         {
             if(isTriggered == false)
             {
-                isFalling = true;
                 myAnimator.SetBool("isHurt", true);
+                isFalling = true;
                 playerHealth.TakeDamage(10);
                 runSpeed = 0f;
                 myAnimator.SetBool("isJumping", false);
@@ -168,6 +170,14 @@ public class PlayerMobileMovement : MonoBehaviour
             return true;
         else
             return false;
+    }
+    public void CheckLog()
+    {
+        Debug.Log("isGorunded" + isGrounded);
+        Debug.Log("quiz.isActive" + quiz.isActive);
+        Debug.Log("layer mask ground" + myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground")));
+        Debug.Log("layer climbing" + !myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Climbing")));
+        Debug.Log("layers Hazards"+ !myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Hazards")));
     }
 
 }
