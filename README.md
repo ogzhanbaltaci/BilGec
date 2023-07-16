@@ -6,6 +6,18 @@ Additionally you need to find and collect gems to unlock level exit portal. If y
 On this project i tried to use everything i have learned from my previous game projects to make a game that is enjoyable and  instructs the player about general knowledge topics that consists of geography, maths, history, biology etc.
 If all levels of the game are completed, it is expected that the person has developed himself/herself in simple general knowledge topics.
 
-    From this link you can watch a demo of the game : 
+You can watch the first episode of the game from down below.
+
+
+https://github.com/ogzhanbaltaci/BilGec/assets/101997322/3aa47be5-92e0-4c2d-947e-be8432fca9fc
+
+If you would like to see more of the game you can watch the extended demo from the link below.
+
+https://youtu.be/unw0tk616-M
+
+
+
+
+
 
 
